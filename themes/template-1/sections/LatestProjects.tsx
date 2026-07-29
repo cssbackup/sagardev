@@ -12,8 +12,10 @@ const THEME = "template-1" as const;
 export default function LatestProjects({ data }: { data: ResolvedSiteData }) {
   const section = data.latestProjects;
   const items = section.projectItems;
-  const ctaHref = withTheme(section.button?.href || "/projects", THEME);
-  const ctaLabel = section.button?.label || "View all projects";
+  const ctaHref = section.button
+    ? withTheme(section.button.href, THEME)
+    : null;
+  const ctaLabel = section.button?.label;
 
   if (items.length === 0) return null;
 
@@ -79,15 +81,17 @@ export default function LatestProjects({ data }: { data: ResolvedSiteData }) {
         </Carousel>
       </div>
 
-      <div className="mt-8 flex justify-center px-4">
-        <Link
-          href={ctaHref}
-          className="inline-flex items-center gap-2 rounded-full bg-[#141414] px-6 py-3 text-sm font-medium text-white transition hover:bg-[#141414]/90"
-        >
-          {ctaLabel}
-          <FaArrowRight className="text-[10px]" aria-hidden />
-        </Link>
-      </div>
+      {ctaHref && ctaLabel && (
+        <div className="mt-8 flex justify-center px-4">
+          <Link
+            href={ctaHref}
+            className="inline-flex items-center gap-2 rounded-full bg-[#141414] px-6 py-3 text-sm font-medium text-white transition hover:bg-[#141414]/90"
+          >
+            {ctaLabel}
+            <FaArrowRight className="text-[10px]" aria-hidden />
+          </Link>
+        </div>
+      )}
     </section>
   );
 }

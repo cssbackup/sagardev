@@ -11,14 +11,6 @@ import { FaArrowRight, FaBuilding } from "react-icons/fa";
 const THEME = "template-1" as const;
 const MAX_CARDS = 4;
 
-const DEFAULT_CATEGORIES = [
-  "All",
-  "Residential",
-  "Commercial",
-  "Mixed Use",
-  "Plotted Development",
-];
-
 function projectDetailPath(
   name: string,
   projects: LatestProjectItem[],
@@ -52,8 +44,8 @@ export default function CitiesWeServe({ data }: { data: ResolvedSiteData }) {
   const section = data.citiesWeServe;
   const cities = section.cities;
   const projects = data.latestProjects.projectItems;
-  const ctaHref = withTheme(section.button?.href || "/projects", THEME);
-  const ctaLabel = section.button?.label || "Explore All Projects";
+  const ctaHref = section.button ? withTheme(section.button.href, THEME) : null;
+  const ctaLabel = section.button?.label;
 
   const filters = useMemo(() => {
     const fromSection = (section.categories || []).filter(Boolean);
@@ -65,7 +57,7 @@ export default function CitiesWeServe({ data }: { data: ResolvedSiteData }) {
     const fromItems = Array.from(
       new Set(cities.map((c) => c.category).filter(Boolean) as string[])
     );
-    return fromItems.length ? ["All", ...fromItems] : DEFAULT_CATEGORIES;
+    return fromItems.length ? ["All", ...fromItems] : ["All"];
   }, [section.categories, cities]);
 
   const [activeFilter, setActiveFilter] = useState(filters[0] || "All");
@@ -120,9 +112,7 @@ export default function CitiesWeServe({ data }: { data: ResolvedSiteData }) {
 
         <div className="mt-8 md:mt-10">
           {filtered.length === 0 ? (
-            <p className="text-center text-sm text-[#141414]/60">
-              No projects in this category right now. Try another filter.
-            </p>
+            null
           ) : (
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 md:gap-5">
               {filtered.map((city) => {
@@ -130,8 +120,7 @@ export default function CitiesWeServe({ data }: { data: ResolvedSiteData }) {
                   projectDetailPath(city.name, projects, city.href),
                   THEME
                 );
-                const category =
-                  city.category || city.listingsLabel || "Project";
+                const category = city.category || city.listingsLabel;
 
                 return (
                   <Link
@@ -150,10 +139,12 @@ export default function CitiesWeServe({ data }: { data: ResolvedSiteData }) {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
                       <div className="absolute inset-x-0 bottom-0 p-4 text-white">
-                        <p className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-white/85">
-                          <FaBuilding className="text-[10px]" aria-hidden />
-                          {category}
-                        </p>
+                        {category && (
+                          <p className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-white/85">
+                            <FaBuilding className="text-[10px]" aria-hidden />
+                            {category}
+                          </p>
+                        )}
                         <h3 className="mt-2 text-lg font-semibold leading-snug">
                           {city.name}
                         </h3>
@@ -175,20 +166,22 @@ export default function CitiesWeServe({ data }: { data: ResolvedSiteData }) {
         </div>
 
         <div className="mt-8 flex justify-center">
-          <Link
-            href={
-              activeFilter === "All"
-                ? ctaHref
-                : withTheme(
-                    `/projects?category=${encodeURIComponent(activeFilter)}`,
-                    THEME
-                  )
-            }
-            className="inline-flex items-center gap-2 rounded-full bg-[#141414] px-6 py-3 text-sm font-medium text-white transition hover:bg-[#141414]/90"
-          >
-            {ctaLabel}
-            <FaArrowRight className="text-[10px]" aria-hidden />
-          </Link>
+          {ctaHref && ctaLabel ? (
+            <Link
+              href={
+                activeFilter === "All"
+                  ? ctaHref
+                  : withTheme(
+                      `/projects?category=${encodeURIComponent(activeFilter)}`,
+                      THEME
+                    )
+              }
+              className="inline-flex items-center gap-2 rounded-full bg-[#141414] px-6 py-3 text-sm font-medium text-white transition hover:bg-[#141414]/90"
+            >
+              {ctaLabel}
+              <FaArrowRight className="text-[10px]" aria-hidden />
+            </Link>
+          ) : null}
         </div>
       </div>
     </section>

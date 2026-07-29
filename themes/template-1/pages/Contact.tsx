@@ -174,7 +174,7 @@ export default function ContactContent({
             {/* Right — form (first on mobile) */}
             <div className="order-1 rounded-2xl border border-[#141414]/10 bg-[#faf8f4] p-5 md:p-7 lg:order-2">
               <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#c44536]">
-                {page.formPretitle || "Write us"}
+                {page.formPretitle}
               </p>
               <h2 className="mt-2.5 text-[1.75rem] font-semibold leading-[1.15] tracking-[-0.02em] text-[#141414] md:text-[2.1rem]">
                 {page.formTitle}
@@ -227,15 +227,16 @@ export default function ContactContent({
                       />
                       <span>
                         {page.consentPrefix}{" "}
-                        <Link
-                          href={withTheme(
-                            privacyLink?.href || "/privacy",
-                            theme
-                          )}
-                          className="underline underline-offset-2 transition hover:text-[#141414]"
-                        >
-                          {privacyLink?.label || data.privacyPage.title}
-                        </Link>
+                        {privacyLink?.href ? (
+                          <Link
+                            href={withTheme(privacyLink.href, theme)}
+                            className="underline underline-offset-2 transition hover:text-[#141414]"
+                          >
+                            {privacyLink?.label || data.privacyPage.title}
+                          </Link>
+                        ) : (
+                          <span>{privacyLink?.label || data.privacyPage.title}</span>
+                        )}
                         .
                       </span>
                     </label>

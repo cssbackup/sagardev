@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import MediaImage from "@/components/MediaImage";
 import { withTheme } from "@/lib/theme";
-import type { BannerFeatureItem, ResolvedSiteData } from "@/lib/types";
+import type { ResolvedSiteData } from "@/lib/types";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import {
   FaHandshake,
@@ -23,29 +23,6 @@ const FEATURE_ICONS: Record<string, ComponentType<{ className?: string }>> = {
   support: FaHandshake,
   delivery: FaStopwatch,
 };
-
-const DEFAULT_FEATURES: BannerFeatureItem[] = [
-  {
-    title: "Prime Locations",
-    desc: "Carefully chosen neighborhoods",
-    icon: "location",
-  },
-  {
-    title: "Verified Properties",
-    desc: "Legally verified & 100% transparent",
-    icon: "verified",
-  },
-  {
-    title: "End-to-End Support",
-    desc: "From site visit to possession",
-    icon: "support",
-  },
-  {
-    title: "Timely Delivery",
-    desc: "On-time commitments, every time",
-    icon: "delivery",
-  },
-];
 
 const container = {
   hidden: {},
@@ -112,9 +89,8 @@ function RevealWords({ text, className }: { text: string; className?: string }) 
 
 export default function Hero({ data }: { data: ResolvedSiteData }) {
   const { banner } = data;
-  const brand = data.header.logo || "HAUS Group";
-  const features =
-    banner.features?.length ? banner.features : DEFAULT_FEATURES;
+  const brand = data.header.logo;
+  const features = banner.features ?? [];
   const slides = useMemo(
     () =>
       banner.bannerSlides?.length
@@ -125,15 +101,15 @@ export default function Hero({ data }: { data: ResolvedSiteData }) {
               alt: banner.backgroundImageTitle || banner.title,
               title: banner.title,
               desc: banner.desc,
-              button: banner.buttons?.[0],
+              button: banner.buttons[0],
             },
           ],
     [banner, data.template.image]
   );
   const [activeSlide, setActiveSlide] = useState(0);
   const currentSlide = slides[activeSlide] ?? slides[0];
-  const primary = currentSlide?.button || banner.buttons?.[0];
-  const secondary = banner.buttons?.[1];
+  const primary = currentSlide?.button ?? banner.buttons[0];
+  const secondary = banner.buttons[1];
 
   useEffect(() => {
     if (slides.length <= 1) return;
@@ -206,7 +182,7 @@ export default function Hero({ data }: { data: ResolvedSiteData }) {
             >
               {primary && (
                 <Link
-                  href={withTheme(primary.href || "/contact", THEME)}
+                  href={withTheme(primary.href, THEME)}
                   className="inline-flex w-full items-center justify-center rounded-full bg-white px-5 py-2 text-[13px] font-semibold text-[#141414] transition hover:bg-white/90 sm:w-auto sm:px-6 sm:py-3 sm:text-sm"
                 >
                   {primary.label}
@@ -214,7 +190,7 @@ export default function Hero({ data }: { data: ResolvedSiteData }) {
               )}
               {secondary && (
                 <Link
-                  href={withTheme(secondary.href || "/properties", THEME)}
+                  href={withTheme(secondary.href, THEME)}
                   className="inline-flex w-full items-center justify-center rounded-full border border-white/80 px-5 py-2 text-[13px] font-semibold text-white transition hover:bg-white/10 sm:w-auto sm:px-6 sm:py-3 sm:text-sm"
                 >
                   {secondary.label}

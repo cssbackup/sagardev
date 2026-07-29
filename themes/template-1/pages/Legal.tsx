@@ -65,13 +65,15 @@ export default function LegalPageContent({
             <p className="mt-3 text-sm leading-relaxed text-[#141414]/65">
               {contact.email} · {contact.phone} · {contact.location}
             </p>
-            <Link
-              href={withTheme(aboutCta?.href || "/contact", theme)}
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#141414] px-6 py-3 text-sm font-medium text-white transition hover:bg-black"
-            >
-              {aboutCta?.label || cta.formSubmitLabel}
-              <FaArrowRight className="text-[10px]" />
-            </Link>
+            {aboutCta?.href ? (
+              <Link
+                href={withTheme(aboutCta.href, theme)}
+                className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#141414] px-6 py-3 text-sm font-medium text-white transition hover:bg-black"
+              >
+                {aboutCta?.label || cta.formSubmitLabel}
+                <FaArrowRight className="text-[10px]" />
+              </Link>
+            ) : null}
           </div>
         </div>
       </section>

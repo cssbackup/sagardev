@@ -13,24 +13,27 @@ export default function Solutions({ data }: { data: ResolvedSiteData }) {
 
   const cards = [
     {
-      step: "01",
       eyebrow: about.pretitle,
       title: about.philosophyTitle,
       desc: about.philosophyDesc,
       image: about.backgroundImage,
-      href: primaryCta?.href || "/contact",
-      cta: primaryCta?.label || formDetail.formSubmitLabel,
+      href: primaryCta.href,
+      cta: primaryCta.label,
     },
     {
-      step: "02",
       eyebrow: formDetail.pretitle,
       title: formDetail.title,
       desc: formDetail.desc,
       image: formDetail.backgroundImage,
-      href: primaryCta?.href || "/contact",
+      href: primaryCta.href,
       cta: formDetail.formSubmitLabel,
     },
-  ].filter((card) => card.title && card.image);
+  ]
+    .map((card, index) => ({
+      ...card,
+      step: String(index + 1).padStart(2, "0"),
+    }))
+    .filter((card) => card.title && card.image);
 
   if (cards.length === 0) return null;
 
@@ -58,7 +61,7 @@ export default function Solutions({ data }: { data: ResolvedSiteData }) {
             return (
               <Link
                 key={`${card.eyebrow}-${card.title}`}
-                href={withTheme(card.href === "#" ? "/contact" : card.href, THEME)}
+                href={withTheme(card.href, THEME)}
                 className={`group grid overflow-hidden rounded-[1.25rem] border border-[#141414]/8 bg-[#faf8f4] transition duration-500 hover:border-[#141414]/15 hover:shadow-[0_20px_50px_rgba(20,20,20,0.08)] md:rounded-[1.5rem] md:grid-cols-2 ${
                   reverse ? "md:[&>*:first-child]:order-2" : ""
                 }`}

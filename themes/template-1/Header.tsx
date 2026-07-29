@@ -163,7 +163,7 @@ function HeaderInner({ data }: { data: ResolvedSiteData }) {
           <div className="flex items-center justify-end gap-2">
             {cta && (
               <Link
-                href={withTheme(cta.href || "/contact", THEME)}
+                href={withTheme(cta.href, THEME)}
                 className="hidden rounded-full bg-[#141414] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-black lg:inline-flex"
               >
                 {cta.label}

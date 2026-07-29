@@ -12,7 +12,6 @@ const ease = [0.22, 1, 0.36, 1] as const;
 export default function IntroCategories({ data }: { data: ResolvedSiteData }) {
   const { properties } = data;
   const cards = properties.categories.slice(0, 3);
-  const fallbackHref = properties.buttons[0]?.href || "/properties";
 
   if (cards.length === 0) return null;
 
@@ -21,7 +20,7 @@ export default function IntroCategories({ data }: { data: ResolvedSiteData }) {
       <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-10">
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
           {cards.map((item, i) => {
-            const href = item.href || fallbackHref;
+            const href = item.href ?? properties.buttons[0].href;
 
             return (
               <motion.div
@@ -33,7 +32,7 @@ export default function IntroCategories({ data }: { data: ResolvedSiteData }) {
                 className="h-full"
               >
                 <Link
-                  href={withTheme(href === "#" ? "/properties" : href, THEME)}
+                  href={withTheme(href, THEME)}
                   className="group flex h-full flex-col overflow-hidden rounded-xl border border-[#141414]/8 bg-white transition duration-300 hover:border-[#141414]/15 hover:shadow-[0_12px_28px_rgba(20,20,20,0.06)]"
                 >
                   <div className="relative aspect-[2/1] overflow-hidden sm:aspect-[16/9]">

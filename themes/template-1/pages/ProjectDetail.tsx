@@ -20,12 +20,6 @@ import {
 } from "react-icons/fa";
 import { MdElevator, MdLocalLaundryService, MdOutlinePark } from "react-icons/md";
 
-const PROJECT_FALLBACK_IMAGES = [
-  "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&q=80",
-  "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1400&q=80",
-  "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1400&q=80",
-];
-
 const AMENITIES = [
   { label: "Swimming Pool", icon: FaSwimmingPool },
   { label: "Gym / Fitness", icon: FaDumbbell },
@@ -58,33 +52,36 @@ export default function ProjectDetail({
   const project = findProject(data.latestProjects.projectItems, slug);
 
   if (!project) {
+    const notFoundTitle = chrome?.notFoundTitle;
+    const backLabel = chrome?.backLabel;
+    if (!notFoundTitle) return null;
     return (
       <div className="mx-auto max-w-3xl px-4 py-16 text-center">
         <h1 className="text-2xl font-semibold text-[#141414]">
-          {chrome?.notFoundTitle || "Project not found"}
+          {notFoundTitle}
         </h1>
-        <Link
-          href={withTheme("/projects", theme)}
-          className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[#c44536]"
-        >
-          <FaArrowLeft className="text-[10px]" />{" "}
-          {chrome?.backLabel || "Back to projects"}
-        </Link>
+        {backLabel ? (
+          <Link
+            href={withTheme("/projects", theme)}
+            className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[#c44536]"
+          >
+            <FaArrowLeft className="text-[10px]" /> {backLabel}
+          </Link>
+        ) : null}
       </div>
     );
   }
 
-  const parentLabel = chrome?.breadcrumbParentLabel || "Projects";
+  const parentLabel = chrome?.breadcrumbParentLabel;
   const breadcrumb = [
     { label: "Home", href: "/" },
-    { label: parentLabel, href: "/projects" },
+    ...(parentLabel ? [{ label: parentLabel, href: "/projects" }] : []),
     { label: project.title, href: `/projects/${slug}` },
   ];
 
-  const primaryLabel =
-    project.button?.label || chrome?.primaryCtaLabel || "Enquire now";
-  const primaryHref = project.button?.href || "/contact";
-  const secondaryLabel = chrome?.secondaryCtaLabel || "All projects";
+  const primaryLabel = project.button?.label ?? chrome?.primaryCtaLabel;
+  const primaryHref = project.button?.href;
+  const secondaryLabel = chrome?.secondaryCtaLabel;
 
   return (
     <div className="bg-white">
@@ -124,19 +121,23 @@ export default function ProjectDetail({
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  href={withTheme(primaryHref, theme)}
-                  className="inline-flex items-center gap-2 rounded-full bg-[#141414] px-6 py-3 text-sm font-semibold text-white transition hover:bg-black"
-                >
-                  {primaryLabel}
-                  <FaArrowRight className="text-[10px]" />
-                </Link>
-                <Link
-                  href={withTheme("/projects", theme)}
-                  className="inline-flex items-center gap-2 rounded-full border border-[#141414]/20 px-6 py-3 text-sm font-semibold text-[#141414] transition hover:bg-[#faf8f4]"
-                >
-                  <FaArrowLeft className="text-[10px]" /> {secondaryLabel}
-                </Link>
+                {primaryHref && primaryLabel ? (
+                  <Link
+                    href={withTheme(primaryHref, theme)}
+                    className="inline-flex items-center gap-2 rounded-full bg-[#141414] px-6 py-3 text-sm font-semibold text-white transition hover:bg-black"
+                  >
+                    {primaryLabel}
+                    <FaArrowRight className="text-[10px]" />
+                  </Link>
+                ) : null}
+                {secondaryLabel ? (
+                  <Link
+                    href={withTheme("/projects", theme)}
+                    className="inline-flex items-center gap-2 rounded-full border border-[#141414]/20 px-6 py-3 text-sm font-semibold text-[#141414] transition hover:bg-[#faf8f4]"
+                  >
+                    <FaArrowLeft className="text-[10px]" /> {secondaryLabel}
+                  </Link>
+                ) : null}
               </div>
             </div>
 
@@ -149,10 +150,6 @@ export default function ProjectDetail({
                     src: project.image,
                     alt: project.alt || project.title,
                   },
-                  ...PROJECT_FALLBACK_IMAGES.map((src, index) => ({
-                    src,
-                    alt: `${project.title} view ${index + 1}`,
-                  })),
                 ]}
               />
             </div>
@@ -160,34 +157,6 @@ export default function ProjectDetail({
         </div>
       </section>
 
-      {/* Amenities — fixed */}
-      <section className="border-t border-[#141414]/8 bg-[#faf8f4] px-4 py-10 md:px-8 md:py-12 lg:px-10">
-        <div className="mx-auto max-w-7xl text-center">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#c44536]">
-            Amenities
-          </p>
-          <h2 className="mx-auto mt-3 max-w-2xl text-[1.75rem] font-semibold leading-tight tracking-[-0.02em] text-[#141414] md:text-[2.1rem]">
-            What this project offers.
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-[#141414]/60 md:text-base">
-            Lifestyle facilities and everyday comforts available across the community.
-          </p>
-
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 md:mt-10 md:gap-4 lg:grid-cols-4">
-            {AMENITIES.map(({ label, icon: Icon }) => (
-              <div
-                key={label}
-                className="flex flex-col items-center gap-3 rounded-2xl border border-[#141414]/8 bg-white px-4 py-5 text-center transition hover:border-[#c44536]/25 hover:shadow-sm"
-              >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#c44536]/10 text-[#c44536]">
-                  <Icon className="text-sm" aria-hidden />
-                </span>
-                <span className="text-sm font-semibold text-[#141414]">{label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

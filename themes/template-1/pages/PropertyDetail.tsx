@@ -19,12 +19,6 @@ import {
 } from "react-icons/fa";
 import { MdElevator, MdLocalLaundryService, MdOutlinePark } from "react-icons/md";
 
-const PROPERTY_FALLBACK_IMAGES = [
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=80",
-  "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1400&q=80",
-  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1400&q=80",
-];
-
 const AMENITIES = [
   { label: "Swimming Pool", icon: FaSwimmingPool },
   { label: "Gym / Fitness", icon: FaDumbbell },
@@ -57,33 +51,35 @@ export default function PropertyDetail({
   const property = findProperty(data.properties.listings ?? [], slug);
 
   if (!property) {
+    const notFoundTitle = chrome?.notFoundTitle;
+    const backLabel = chrome?.backLabel;
+    if (!notFoundTitle) return null;
     return (
       <div className="mx-auto max-w-3xl px-4 py-16 text-center">
         <h1 className="text-2xl font-semibold text-[#141414]">
-          {chrome?.notFoundTitle || "Property not found"}
+          {notFoundTitle}
         </h1>
-        <Link
-          href={withTheme("/properties", theme)}
-          className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[#c44536]"
-        >
-          <FaArrowLeft className="text-[10px]" />{" "}
-          {chrome?.backLabel || "Back to properties"}
-        </Link>
+        {backLabel ? (
+          <Link
+            href={withTheme("/properties", theme)}
+            className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[#c44536]"
+          >
+            <FaArrowLeft className="text-[10px]" /> {backLabel}
+          </Link>
+        ) : null}
       </div>
     );
   }
 
-  const parentLabel = chrome?.breadcrumbParentLabel || "Properties";
   const breadcrumb = [
-    { label: "Home", href: "/" },
-    { label: parentLabel, href: "/properties" },
+    ...(data.properties.breadcrumb ?? []),
     { label: property.title, href: `/properties/${slug}` },
   ];
 
   const primaryLabel =
-    property.button?.label || chrome?.primaryCtaLabel || "Book a visit";
-  const primaryHref = property.button?.href || "/contact";
-  const secondaryLabel = chrome?.secondaryCtaLabel || "All properties";
+    property.button?.label ?? chrome?.primaryCtaLabel;
+  const primaryHref = property.button?.href;
+  const secondaryLabel = chrome?.secondaryCtaLabel;
 
   return (
     <div className="bg-white">
@@ -101,7 +97,7 @@ export default function PropertyDetail({
                   </span>
                 )}
                 <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#c44536]">
-                  {property.category || "Listing"} · {property.subtitle}
+                  {property.category ? `${property.category} · ` : ""}{property.subtitle}
                 </span>
               </div>
 
@@ -135,19 +131,23 @@ export default function PropertyDetail({
               )}
 
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  href={withTheme(primaryHref, theme)}
-                  className="inline-flex items-center gap-2 rounded-full bg-[#141414] px-6 py-3 text-sm font-semibold text-white transition hover:bg-black"
-                >
-                  {primaryLabel}
-                  <FaArrowRight className="text-[10px]" />
-                </Link>
-                <Link
-                  href={withTheme("/properties", theme)}
-                  className="inline-flex items-center gap-2 rounded-full border border-[#141414]/20 px-6 py-3 text-sm font-semibold text-[#141414] transition hover:bg-[#faf8f4]"
-                >
-                  <FaArrowLeft className="text-[10px]" /> {secondaryLabel}
-                </Link>
+                {primaryHref && primaryLabel ? (
+                  <Link
+                    href={withTheme(primaryHref, theme)}
+                    className="inline-flex items-center gap-2 rounded-full bg-[#141414] px-6 py-3 text-sm font-semibold text-white transition hover:bg-black"
+                  >
+                    {primaryLabel}
+                    <FaArrowRight className="text-[10px]" />
+                  </Link>
+                ) : null}
+                {secondaryLabel ? (
+                  <Link
+                    href={withTheme("/properties", theme)}
+                    className="inline-flex items-center gap-2 rounded-full border border-[#141414]/20 px-6 py-3 text-sm font-semibold text-[#141414] transition hover:bg-[#faf8f4]"
+                  >
+                    <FaArrowLeft className="text-[10px]" /> {secondaryLabel}
+                  </Link>
+                ) : null}
               </div>
             </div>
 
@@ -160,10 +160,6 @@ export default function PropertyDetail({
                     src: property.image,
                     alt: property.alt || property.title,
                   },
-                  ...PROPERTY_FALLBACK_IMAGES.map((src, index) => ({
-                    src,
-                    alt: `${property.title} interior ${index + 1}`,
-                  })),
                 ]}
               />
             </div>
@@ -171,34 +167,27 @@ export default function PropertyDetail({
         </div>
       </section>
 
-      {/* Amenities — fixed */}
-      <section className="border-t border-[#141414]/8 bg-[#faf8f4] px-4 py-10 md:px-8 md:py-12 lg:px-10">
-        <div className="mx-auto max-w-7xl text-center">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#c44536]">
-            Amenities
-          </p>
-          <h2 className="mx-auto mt-3 max-w-2xl text-[1.75rem] font-semibold leading-tight tracking-[-0.02em] text-[#141414] md:text-[2.1rem]">
-            What this property offers.
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-[#141414]/60 md:text-base">
-            Everyday comforts and lifestyle facilities included with this listing.
-          </p>
-
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 md:mt-10 md:gap-4 lg:grid-cols-4">
-            {AMENITIES.map(({ label, icon: Icon }) => (
-              <div
-                key={label}
-                className="flex flex-col items-center gap-3 rounded-2xl border border-[#141414]/8 bg-white px-4 py-5 text-center transition hover:border-[#c44536]/25 hover:shadow-sm"
-              >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#c44536]/10 text-[#c44536]">
-                  <Icon className="text-sm" aria-hidden />
-                </span>
-                <span className="text-sm font-semibold text-[#141414]">{label}</span>
-              </div>
-            ))}
+      {property.features?.length ? (
+        <section className="border-t border-[#141414]/8 bg-[#faf8f4] px-4 py-10 md:px-8 md:py-12 lg:px-10">
+          <div className="mx-auto max-w-7xl">
+            <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 md:mt-10 md:gap-4 lg:grid-cols-4">
+              {property.features.slice(0, 8).map((feature) => (
+                <div
+                  key={feature.label}
+                  className="flex flex-col items-center gap-2 rounded-2xl border border-[#141414]/8 bg-white px-4 py-5 text-center"
+                >
+                  <span className="text-sm font-semibold text-[#141414]">
+                    {feature.label}
+                  </span>
+                  <span className="text-sm font-semibold text-[#141414] opacity-70">
+                    {feature.value}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : null}
     </div>
   );
 }
