@@ -1,0 +1,346 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --brand-red: #e53e3e;
+  --brand-navy: #0b162a;
+  --inicio-cream: #f8f7f0;
+  --inicio-orange: #e35e25;
+  --inicio-dark: #1a1612;
+  --renvia-red: #ff4d30;
+  --homeify-bg: #0b161e;
+  --homeify-lime: #ceff05;
+  --haus-cream: #faf8f4;
+  --haus-sand: #f3efe8;
+  --haus-ink: #141414;
+  --haus-accent: #c44536;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-inicio-cream: var(--inicio-cream);
+  --color-inicio-orange: var(--inicio-orange);
+  --color-inicio-dark: var(--inicio-dark);
+  --font-sans: var(--font-t1), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-t1), ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/*
+  Each theme uses ONE font family for body + headings.
+  Remap Tailwind font-sans / font-serif vars so existing classes stay consistent.
+*/
+.theme-t1 {
+  --font-sans: var(--font-t1), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-t1), ui-sans-serif, system-ui, sans-serif;
+  --font-dm-sans: var(--font-t1);
+  --font-lora: var(--font-t1);
+  font-family: var(--font-t1), system-ui, sans-serif;
+}
+
+.theme-t1 .font-sans,
+.theme-t1 .font-serif {
+  font-family: inherit;
+}
+
+.theme-t2 {
+  --font-sans: var(--font-t2), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-t2), ui-sans-serif, system-ui, sans-serif;
+  --reroom-accent: #ff6b00;
+  --reroom-ink: #141414;
+  font-family: var(--font-t2), system-ui, sans-serif !important;
+}
+
+@keyframes t2-ken {
+  from {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1.12);
+  }
+}
+
+.t2-ken {
+  animation: t2-ken 22s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes t2-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.t2-marquee {
+  animation: t2-marquee 32s linear infinite;
+}
+
+@keyframes t2-services-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.t2-services-marquee {
+  animation: t2-services-marquee 35s linear infinite;
+  will-change: transform;
+}
+
+.t2-services-marquee-paused {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t2-marquee {
+    animation: none !important;
+  }
+
+  .t2-services-marquee {
+    animation: none !important;
+  }
+}
+
+.theme-t2 * {
+  font-family: inherit;
+}
+
+.theme-t2 .font-sans,
+.theme-t2 .font-serif {
+  font-family: inherit;
+}
+
+.theme-t3 {
+  --font-sans: var(--font-t3), ui-serif, Georgia, serif;
+  --font-serif: var(--font-t3), ui-serif, Georgia, serif;
+  --font-t3-serif: var(--font-t3);
+  --snifty-red: #e11d2e;
+  --snifty-navy: #0b1f33;
+  font-family: var(--font-t3), Georgia, serif !important;
+}
+
+.theme-t3,
+.theme-t3 * {
+  font-family: var(--font-t3), Georgia, serif !important;
+}
+
+.theme-t3 .font-sans,
+.theme-t3 .font-serif,
+.theme-t3 .t3-serif {
+  font-family: var(--font-t3), Georgia, serif !important;
+}
+
+.theme-t3 .t3-serif,
+.theme-t3 h1,
+.theme-t3 h2,
+.theme-t3 h3,
+.theme-t3 .font-bold,
+.theme-t3 .font-semibold {
+  font-weight: 700;
+}
+
+@keyframes t3-ken {
+  from {
+    transform: scale(1.04);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+.t3-ken {
+  animation: t3-ken 24s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes t3-hero-copy {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.theme-t2-hatch {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 6px,
+    rgba(255, 255, 255, 0.06) 6px,
+    rgba(255, 255, 255, 0.06) 7px
+  );
+}
+
+.theme-t2-hatch-dark {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 6px,
+    rgba(20, 20, 20, 0.06) 6px,
+    rgba(20, 20, 20, 0.06) 7px
+  );
+}
+
+html {
+  /* Lenis owns smooth scrolling — keep native jump for reduced-motion fallback */
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+@keyframes inicio-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes partners-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.partners-marquee {
+  animation: partners-marquee 28s linear infinite;
+}
+
+.partners-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes inicio-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes inicio-pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+}
+
+@keyframes inicio-kenburns {
+  0% {
+    background-position: 30% 40%;
+    transform: scale(1);
+  }
+  100% {
+    background-position: 70% 60%;
+    transform: scale(1.08);
+  }
+}
+
+.inicio-marquee {
+  animation: inicio-marquee 28s linear infinite;
+}
+
+.inicio-float {
+  animation: inicio-float 4s ease-in-out infinite;
+}
+
+.inicio-pulse-ring {
+  animation: inicio-pulse-ring 2s ease-out infinite;
+}
+
+.inicio-mask-text {
+  background-size: cover;
+  background-position: center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: inicio-kenburns 18s ease-in-out infinite alternate;
+}
+
+@keyframes inicio-caret-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.inicio-caret {
+  animation: inicio-caret-blink 0.7s step-end infinite;
+}
+
+.inicio-caret-blink {
+  animation: inicio-caret-blink 1s step-end infinite;
+}
+
+@keyframes homeify-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.homeify-spin {
+  animation: homeify-spin 12s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-safe,
+  .motion-safe * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .inicio-marquee,
+  .partners-marquee,
+  .inicio-float,
+  .inicio-pulse-ring,
+  .inicio-mask-text,
+  .homeify-spin,
+  .inicio-caret,
+  .inicio-caret-blink {
+    animation: none !important;
+  }
+
+  .theme-t2 .t2-ken {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .theme-t3 .t3-ken {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+
