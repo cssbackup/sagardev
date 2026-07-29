@@ -106,17 +106,17 @@ export default function ProjectDetail({
                 )}
               </div>
 
-              <h1 className="mt-4 text-[2rem] font-semibold leading-[1.12] tracking-[-0.02em] text-[#141414] md:text-[2.5rem] lg:text-[2.75rem]">
+              <h1 className="mt-1 text-[2rem] font-semibold leading-[1.12] tracking-[-0.02em] text-[#141414] md:text-[2.5rem] lg:text-[2.75rem]">
                 {project.title}
               </h1>
 
               {project.desc && project.body && project.desc !== project.body && (
-                <p className="mt-4 text-base font-medium leading-relaxed text-[#141414]/80">
+                <p className="mt-1 text-base font-medium leading-relaxed text-[#141414]/80">
                   {project.desc}
                 </p>
               )}
 
-              <p className="mt-5 text-sm leading-relaxed text-[#141414]/65 md:text-base">
+              <p className="mt-1 text-sm leading-relaxed text-[#141414]/65 md:text-base">
                 {project.body || project.desc}
               </p>
 

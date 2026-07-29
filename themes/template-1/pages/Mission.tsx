@@ -40,10 +40,10 @@ export default function Mission({
             <div className="flex justify-center">
               <Breadcrumb items={page.breadcrumb} theme={theme} />
             </div>
-            <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#c44536] md:text-xs">
+            <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#c44536] md:text-xs">
               {page.pretitle}
             </p>
-            <h1 className="mt-4 text-[2rem] font-semibold sm:text-[2.5rem] leading-[1.08] tracking-[-0.02em] text-[#141414] md:text-[3.35rem]">
+            <h1 className="mt-1 text-[2rem] font-semibold sm:text-[2.5rem] leading-[1.08] tracking-[-0.02em] text-[#141414] md:text-[3.35rem]">
               {page.title}
             </h1>
             <span className="mx-auto mt-6 block h-[2px] w-10 bg-[#c44536]" />
@@ -51,7 +51,7 @@ export default function Mission({
               {page.desc}
             </p>
             {page.desc2 && (
-              <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-[#141414]/55 md:text-base">
+              <p className="mx-auto mt-1 max-w-2xl text-sm leading-relaxed text-[#141414]/55 md:text-base">
                 {page.desc2}
               </p>
             )}
@@ -82,7 +82,7 @@ export default function Mission({
                 </p>
               )}
               {page.pillarsTitle && (
-                <h2 className="mt-4 max-w-xl text-[2rem] font-semibold leading-[1.1] tracking-[-0.02em] md:text-[2.5rem]">
+                <h2 className="mt-1 max-w-xl text-[2rem] font-semibold leading-[1.1] tracking-[-0.02em] md:text-[2.5rem]">
                   {page.pillarsTitle}
                 </h2>
               )}
@@ -93,7 +93,7 @@ export default function Mission({
                     <p className="text-[11px] font-semibold tracking-[0.14em] text-[#c44536]">
                       {String(i + 1).padStart(2, "0")}
                     </p>
-                    <h3 className="mt-3 text-lg font-semibold text-white">{point.title}</h3>
+                    <h3 className="mt-1 text-lg font-semibold text-white">{point.title}</h3>
                     <p className="mt-2 max-w-lg text-sm leading-relaxed text-white/55">
                       {point.desc}
                     </p>
@@ -115,7 +115,7 @@ export default function Mission({
               </p>
             )}
             {page.valuesTitle && (
-              <h2 className="mx-auto mt-3 max-w-2xl text-3xl font-semibold text-[#141414] md:text-4xl">
+              <h2 className="mx-auto mt-1 max-w-2xl text-3xl font-semibold text-[#141414] md:text-4xl">
                 {page.valuesTitle}
               </h2>
             )}
@@ -128,10 +128,10 @@ export default function Mission({
                     <span className="inline-flex h-11 w-11 items-center justify-center border border-[#141414]/15 bg-white text-[#c44536]">
                       <Icon className="text-base" aria-hidden />
                     </span>
-                    <h3 className="mt-4 text-lg font-semibold text-[#141414]">
+                    <h3 className="mt-1 text-lg font-semibold text-[#141414]">
                       {item.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-[#141414]/65">
+                    <p className="mt-1 text-sm leading-relaxed text-[#141414]/65">
                       {item.desc}
                     </p>
                   </div>
@@ -152,12 +152,12 @@ export default function Mission({
               </p>
             )}
             {page.ctaTitle && (
-              <h2 className="mt-4 text-3xl font-semibold text-[#141414] md:text-4xl">
+              <h2 className="mt-1 text-3xl font-semibold text-[#141414] md:text-4xl">
                 {page.ctaTitle}
               </h2>
             )}
             {page.ctaDesc && (
-              <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-[#141414]/65 md:text-base">
+              <p className="mx-auto mt-1 max-w-xl text-sm leading-relaxed text-[#141414]/65 md:text-base">
                 {page.ctaDesc}
               </p>
             )}

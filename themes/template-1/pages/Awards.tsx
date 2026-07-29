@@ -62,13 +62,13 @@ export default function Awards({
             <div className="flex justify-center">
               <Breadcrumb items={page.breadcrumb} theme={theme} />
             </div>
-            <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#c44536]">
+            <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#c44536]">
               {page.pretitle}
             </p>
-            <h1 className="mt-4 text-[2.25rem] font-semibold leading-[1.1] tracking-[-0.02em] text-[#141414] md:text-[3.1rem]">
+            <h1 className="mt-1 text-[2.25rem] font-semibold leading-[1.1] tracking-[-0.02em] text-[#141414] md:text-[3.1rem]">
               <TitleWithAccent title={page.title} />
             </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[#141414]/65 md:text-lg">
+            <p className="mx-auto mt-1 max-w-2xl text-base leading-relaxed text-[#141414]/65 md:text-lg">
               {page.desc}
             </p>
 
@@ -102,7 +102,7 @@ export default function Awards({
               <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#c44536]">
                 Our honors
               </p>
-              <h2 className="mt-3 text-[1.75rem] font-semibold leading-snug text-[#141414] md:text-[2.25rem]">
+              <h2 className="mt-1 text-[1.75rem] font-semibold leading-snug text-[#141414] md:text-[2.25rem]">
                 Awards that mark how we work
               </h2>
             </div>
@@ -156,14 +156,14 @@ export default function Awards({
                       {award.year}
                     </span>
                   </div>
-                  <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#141414]/45">
+                  <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#141414]/45">
                     {award.org}
                   </p>
                   <h3 className="mt-2 text-lg font-semibold leading-snug text-[#141414]">
                     {award.title}
                   </h3>
                   {award.desc && (
-                    <p className="mt-3 flex-1 text-sm leading-relaxed text-[#141414]/65">
+                    <p className="mt-1 flex-1 text-sm leading-relaxed text-[#141414]/65">
                       {award.desc}
                     </p>
                   )}
@@ -181,10 +181,10 @@ export default function Awards({
               <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#c44536]">
                 Why it matters
               </p>
-              <h2 className="mt-3 max-w-md text-[1.75rem] font-semibold leading-snug md:text-[2.25rem]">
+              <h2 className="mt-1 max-w-md text-[1.75rem] font-semibold leading-snug md:text-[2.25rem]">
                 Recognition that reflects how we work every day
               </h2>
-              <p className="mt-4 max-w-md text-sm leading-relaxed text-white/55 md:text-base">
+              <p className="mt-1 max-w-md text-sm leading-relaxed text-white/55 md:text-base">
                 Awards are a snapshot. The real measure is the clarity buyers and
                 sellers feel from the first shortlist to the key handover.
               </p>

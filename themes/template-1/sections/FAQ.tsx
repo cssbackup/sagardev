@@ -21,7 +21,7 @@ export default function FAQ({ data }: { data: ResolvedSiteData }) {
               {faq.pretitle}
             </p>
           )}
-          <h2 className="mt-3 text-[2rem] font-semibold leading-tight text-[#141414] md:text-[2.5rem]">
+          <h2 className="mt-1 text-[2rem] font-semibold leading-tight text-[#141414] md:text-[2.5rem]">
             {faq.title}
           </h2>
         </div>

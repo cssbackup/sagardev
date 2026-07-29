@@ -25,8 +25,8 @@ export default function ErrorContent({
     <section className="flex min-h-[60vh] items-center justify-center bg-[#faf8f4] px-4 py-16 md:py-20">
       <div className="max-w-lg text-center">
         <p className={`text-7xl font-extrabold md:text-8xl ${ui.accent}`}>{info.code}</p>
-        <h1 className={`mt-4 text-3xl font-bold md:text-4xl ${ui.title}`}>{info.title}</h1>
-        <p className={`mt-4 text-sm leading-relaxed md:text-base ${ui.muted}`}>{info.description}</p>
+        <h1 className={`mt-1 text-3xl font-bold md:text-4xl ${ui.title}`}>{info.title}</h1>
+        <p className={`mt-1 text-sm leading-relaxed md:text-base ${ui.muted}`}>{info.description}</p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link
             href={withTheme("/", theme)}

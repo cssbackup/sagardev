@@ -105,10 +105,10 @@ export default function Career({
 
         <div className="relative mx-auto max-w-7xl px-4 py-10 md:px-8 md:py-14 lg:px-10">
           <Breadcrumb items={page.breadcrumb} theme={theme} variant="light" />
-          <h1 className="mt-5 text-[2.5rem] font-semibold leading-none tracking-[-0.02em] text-white md:text-[3.25rem]">
+          <h1 className="mt-1 text-[2.5rem] font-semibold leading-none tracking-[-0.02em] text-white md:text-[3.25rem]">
             {page.pretitle || "Career"}
           </h1>
-          <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/65 md:text-base">
+          <p className="mt-1 max-w-xl text-sm leading-relaxed text-white/65 md:text-base">
             {page.desc}
           </p>
         </div>
@@ -124,7 +124,7 @@ export default function Career({
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#c44536] text-white">
                 <FaBriefcase className="text-base" aria-hidden />
               </div>
-              <h2 className="mt-4 text-xl font-semibold text-[#141414]">
+              <h2 className="mt-1 text-xl font-semibold text-[#141414]">
                 {selected?.title}
               </h2>
               {selected && (
@@ -133,7 +133,7 @@ export default function Career({
                   {selected.location}
                 </p>
               )}
-              <p className="mt-3 text-sm leading-relaxed text-[#141414]/60">
+              <p className="mt-1 text-sm leading-relaxed text-[#141414]/60">
                 {selected?.desc}
               </p>
 
@@ -180,10 +180,10 @@ export default function Career({
                 <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#c44536]">
                   Application received
                 </p>
-                <h3 className="mt-3 text-2xl font-semibold text-[#141414]">
+                <h3 className="mt-1 text-2xl font-semibold text-[#141414]">
                   Thanks — we&apos;ll reach out soon.
                 </h3>
-                <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-[#141414]/65">
+                <p className="mx-auto mt-1 max-w-sm text-sm leading-relaxed text-[#141414]/65">
                   This demo form only shows a success state. Connect an API for live
                   submissions.
                 </p>

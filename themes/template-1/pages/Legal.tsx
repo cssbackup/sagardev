@@ -24,17 +24,17 @@ export default function LegalPageContent({
           <div className="flex justify-center">
             <Breadcrumb items={page.breadcrumb} theme={theme} />
           </div>
-          <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#c44536] md:text-xs">
+          <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#c44536] md:text-xs">
             {page.pretitle}
           </p>
-          <h1 className="mt-4 text-[2rem] font-semibold sm:text-[2.5rem] leading-[1.08] tracking-[-0.02em] text-[#141414] md:text-[3.35rem]">
+          <h1 className="mt-1 text-[2rem] font-semibold sm:text-[2.5rem] leading-[1.08] tracking-[-0.02em] text-[#141414] md:text-[3.35rem]">
             {page.title}
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-[#141414]/70 md:text-lg">
             {page.desc}
           </p>
           {page.updatedAt && (
-            <p className="mt-4 text-xs font-medium uppercase tracking-[0.14em] text-[#141414]/45">
+            <p className="mt-1 text-xs font-medium uppercase tracking-[0.14em] text-[#141414]/45">
               {page.updatedAt}
             </p>
           )}
@@ -51,7 +51,7 @@ export default function LegalPageContent({
               <h2 className="text-xl font-semibold text-[#141414] md:text-2xl">
                 {section.title}
               </h2>
-              <p className="mt-4 text-sm leading-relaxed text-[#141414]/65 md:text-base">
+              <p className="mt-1 text-sm leading-relaxed text-[#141414]/65 md:text-base">
                 {section.desc}
               </p>
             </article>
@@ -61,8 +61,8 @@ export default function LegalPageContent({
             <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#c44536]">
               {cta.pretitle}
             </p>
-            <h3 className="mt-3 text-2xl font-semibold text-[#141414]">{cta.title}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-[#141414]/65">
+            <h3 className="mt-1 text-2xl font-semibold text-[#141414]">{cta.title}</h3>
+            <p className="mt-1 text-sm leading-relaxed text-[#141414]/65">
               {contact.email} · {contact.phone} · {contact.location}
             </p>
             {aboutCta?.href ? (

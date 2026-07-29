@@ -24,11 +24,11 @@ export default function Testimonials({ data }: { data: ResolvedSiteData }) {
               {testimonial.pretitle}
             </p>
           )}
-          <h2 className="mt-4 text-[2rem] font-semibold leading-tight text-[#141414] md:text-[2.5rem]">
+          <h2 className="mt-1 text-[2rem] font-semibold leading-tight text-[#141414] md:text-[2.5rem]">
             {testimonial.title}
           </h2>
           {testimonial.desc && (
-            <p className="mt-4 text-sm leading-relaxed text-[#141414]/65 md:text-base">
+            <p className="mt-1 text-sm leading-relaxed text-[#141414]/65 md:text-base">
               {testimonial.desc}
             </p>
           )}
@@ -61,7 +61,7 @@ export default function Testimonials({ data }: { data: ResolvedSiteData }) {
                 )}
               </div>
 
-              <p className="mt-4 flex-1 text-sm leading-relaxed text-[#141414]/75">
+              <p className="mt-1 flex-1 text-sm leading-relaxed text-[#141414]/75">
                 {item.quote}
               </p>
 

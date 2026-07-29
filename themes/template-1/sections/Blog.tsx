@@ -26,11 +26,11 @@ export default function Blog({ data }: { data: ResolvedSiteData }) {
               {gallery.pretitle}
             </p>
           )}
-          <h2 className="mt-4 text-[2.35rem] font-semibold leading-tight text-[#141414] md:text-[2.9rem]">
+          <h2 className="mt-1 text-[2.35rem] font-semibold leading-tight text-[#141414] md:text-[2.9rem]">
             {gallery.title}
           </h2>
           {gallery.desc && (
-            <p className="mt-4 text-sm leading-relaxed text-[#141414]/65 md:text-base">
+            <p className="mt-1 text-sm leading-relaxed text-[#141414]/65 md:text-base">
               {gallery.desc}
             </p>
           )}

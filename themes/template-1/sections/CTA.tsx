@@ -114,11 +114,11 @@ export default function CTA({ data }: { data: ResolvedSiteData }) {
                 {formDetail.pretitle}
               </p>
             )}
-            <h2 className="mt-4 max-w-md text-[2rem] font-semibold leading-[1.12] tracking-[-0.02em] text-white sm:text-[2.35rem] md:text-[2.75rem]">
+            <h2 className="mt-1 max-w-md text-[2rem] font-semibold leading-[1.12] tracking-[-0.02em] text-white sm:text-[2.35rem] md:text-[2.75rem]">
               {formDetail.title}
             </h2>
             {formDetail.desc && (
-              <p className="mt-4 max-w-md text-sm leading-relaxed text-white/65 md:text-[15px]">
+              <p className="mt-1 max-w-md text-sm leading-relaxed text-white/65 md:text-[15px]">
                 {formDetail.desc}
               </p>
             )}

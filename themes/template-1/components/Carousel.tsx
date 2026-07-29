@@ -122,7 +122,7 @@ export default function Carousel({
             type="button"
             aria-label={prevLabel}
             onClick={() => swiperRef.current?.slidePrev()}
-            className="absolute left-0 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#141414]/10 bg-white/95 text-[#141414] shadow-[0_8px_24px_rgba(20,20,20,0.12)] transition hover:bg-[#141414] hover:text-white md:left-1 md:flex"
+            className="absolute left-0 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#141414]/10 bg-white/95 text-[#141414] shadow-[0_8px_24px_rgba(20,20,20,0.12)] transition hover:bg-[#141414] hover:text-white md:left-1 md:flex"
           >
             <FaArrowLeft className="text-xs" />
           </button>
@@ -130,7 +130,7 @@ export default function Carousel({
             type="button"
             aria-label={nextLabel}
             onClick={() => swiperRef.current?.slideNext()}
-            className="absolute right-0 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#141414]/10 bg-white/95 text-[#141414] shadow-[0_8px_24px_rgba(20,20,20,0.12)] transition hover:bg-[#141414] hover:text-white md:right-1 md:flex"
+            className="absolute right-0 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#141414]/10 bg-white/95 text-[#141414] shadow-[0_8px_24px_rgba(20,20,20,0.12)] transition hover:bg-[#141414] hover:text-white md:right-1 md:flex"
           >
             <FaArrowRight className="text-xs" />
           </button>

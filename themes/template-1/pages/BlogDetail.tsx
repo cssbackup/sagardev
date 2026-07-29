@@ -75,12 +75,12 @@ export default function BlogDetail({
                 {chrome?.eyebrow || page.pretitle || "Blog"}
               </p>
 
-              <h1 className="mt-4 text-[2rem] font-semibold leading-[1.12] tracking-[-0.02em] text-[#141414] md:text-[2.5rem]">
+              <h1 className="mt-1 text-[2rem] font-semibold leading-[1.12] tracking-[-0.02em] text-[#141414] md:text-[2.5rem]">
                 {post.title}
               </h1>
 
               {post.date && (
-                <p className="mt-4 inline-flex items-center gap-2 text-sm text-[#141414]/55">
+                <p className="mt-1 inline-flex items-center gap-2 text-sm text-[#141414]/55">
                   <FaRegCalendarAlt className="text-[#c44536]" aria-hidden />
                   {post.date}
                 </p>

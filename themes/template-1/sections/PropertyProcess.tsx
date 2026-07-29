@@ -338,7 +338,7 @@ export default function PropertyProcess({ data }: { data: ResolvedSiteData }) {
             {section.pretitle || "Our Process"}
             <FaHouseChimney className="text-[10px]" aria-hidden />
           </p>
-          <h2 className="mt-3 text-[1.85rem] font-semibold leading-tight tracking-[-0.02em] text-[#141414] sm:text-[2.25rem] md:text-[2.6rem]">
+          <h2 className="mt-1 text-[1.85rem] font-semibold leading-tight tracking-[-0.02em] text-[#141414] sm:text-[2.25rem] md:text-[2.6rem]">
             {section.title}
           </h2>
         </div>

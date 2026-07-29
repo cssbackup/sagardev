@@ -17,13 +17,13 @@ export default function Csr({
         <div className="flex justify-center">
           <Breadcrumb items={page.breadcrumb} theme={theme} />
         </div>
-        <p className="mt-5 text-xs font-semibold uppercase tracking-[0.2em] text-[#c44536]">
+        <p className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#c44536]">
           {page.pretitle}
         </p>
-        <h1 className="mt-3 text-3xl font-semibold text-[#141414] md:text-4xl">
+        <h1 className="mt-1 text-3xl font-semibold text-[#141414] md:text-4xl">
           {page.title}
         </h1>
-        <p className="mt-4 text-[#141414]/65">{page.desc}</p>
+        <p className="mt-1 text-[#141414]/65">{page.desc}</p>
         <div className="mt-8 grid grid-cols-2 gap-4">
           {page.impactStats.map((s) => (
             <div key={s.label} className="rounded-xl bg-[#faf8f4] p-4 text-center">

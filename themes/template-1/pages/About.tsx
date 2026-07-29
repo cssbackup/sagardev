@@ -39,7 +39,7 @@ export default function AboutContent({
             <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#c44536] md:text-xs">
               {about.pretitle}
             </p>
-            <h2 className="mt-3 text-[2.35rem] font-semibold leading-[1.08] tracking-[-0.02em] text-[#141414] md:text-[2.75rem]">
+            <h2 className="mt-1 text-[2.35rem] font-semibold leading-[1.08] tracking-[-0.02em] text-[#141414] md:text-[2.75rem]">
               {page.storyLabel || page.subtitle}
             </h2>
           </div>
@@ -50,12 +50,12 @@ export default function AboutContent({
                 <h3 className="text-2xl font-semibold leading-snug text-[#141414] md:text-[1.85rem]">
                   {about.title}
                 </h3>
-                <p className="mt-3 text-sm font-medium text-[#c44536]">{about.subtitle}</p>
+                <p className="mt-1 text-sm font-medium text-[#c44536]">{about.subtitle}</p>
                 <p className="mt-6 text-sm leading-relaxed text-[#141414]/65 md:text-base">
                   {about.desc}
                 </p>
                 {about.desc2 && (
-                  <p className="mt-4 text-sm leading-relaxed text-[#141414]/65 md:text-base">
+                  <p className="mt-1 text-sm leading-relaxed text-[#141414]/65 md:text-base">
                     {about.desc2}
                   </p>
                 )}
@@ -76,10 +76,10 @@ export default function AboutContent({
                 <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#c44536]">
                   {page.subtitle}
                 </p>
-                <h3 className="mt-4 text-2xl font-semibold leading-snug text-[#141414] md:text-[1.85rem]">
+                <h3 className="mt-1 text-2xl font-semibold leading-snug text-[#141414] md:text-[1.85rem]">
                   {page.philosophyTitle || about.philosophyTitle}
                 </h3>
-                <p className="mt-4 flex-1 text-sm leading-relaxed text-[#141414]/65 md:text-base">
+                <p className="mt-1 flex-1 text-sm leading-relaxed text-[#141414]/65 md:text-base">
                   {page.philosophyDesc || about.philosophyDesc}
                 </p>
               </div>
@@ -110,12 +110,12 @@ export default function AboutContent({
                   </p>
                 )}
                 {page.missionTitle && (
-                  <h2 className="mt-4 max-w-xl text-[2.25rem] font-semibold leading-[1.1] tracking-[-0.02em] md:text-[2.75rem]">
+                  <h2 className="mt-1 max-w-xl text-[2.25rem] font-semibold leading-[1.1] tracking-[-0.02em] md:text-[2.75rem]">
                     {page.missionTitle}
                   </h2>
                 )}
                 {page.missionDesc && (
-                  <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/65 md:text-base">
+                  <p className="mt-1 max-w-xl text-sm leading-relaxed text-white/65 md:text-base">
                     {page.missionDesc}
                   </p>
                 )}
@@ -130,7 +130,7 @@ export default function AboutContent({
                         <p className="text-[11px] font-semibold tracking-[0.14em] text-[#c44536]">
                           {String(i + 1).padStart(2, "0")}
                         </p>
-                        <h3 className="mt-3 text-base font-semibold text-white">
+                        <h3 className="mt-1 text-base font-semibold text-white">
                           {point.title}
                         </h3>
                         <p className="mt-2 text-sm leading-relaxed text-white/55">
@@ -185,12 +185,12 @@ export default function AboutContent({
                   </p>
                 )}
                 {page.ctaTitle && (
-                  <h2 className="mt-4 max-w-xl text-3xl font-semibold leading-tight text-white md:text-4xl">
+                  <h2 className="mt-1 max-w-xl text-3xl font-semibold leading-tight text-white md:text-4xl">
                     {page.ctaTitle}
                   </h2>
                 )}
                 {page.ctaDesc && (
-                  <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/65 md:text-base">
+                  <p className="mt-1 max-w-lg text-sm leading-relaxed text-white/65 md:text-base">
                     {page.ctaDesc}
                   </p>
                 )}

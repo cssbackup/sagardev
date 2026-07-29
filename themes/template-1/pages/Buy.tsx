@@ -364,7 +364,7 @@ export default function BuyPage({
         <div className="absolute inset-0 bg-[#141414]/55" />
         <div className="relative z-1 mx-auto flex w-full max-w-7xl flex-col items-center px-4 py-14 text-center sm:py-16 md:py-16">
           <Breadcrumb items={breadcrumb} theme={theme} variant="light" />
-          <h1 className="mt-3 text-[2.4rem] font-semibold tracking-[-0.03em] text-white sm:mt-4 sm:text-[3rem] md:text-[3.5rem]">
+          <h1 className="mt-1 text-[2.4rem] font-semibold tracking-[-0.03em] text-white sm:mt-1 sm:text-[3rem] md:text-[3.5rem]">
             Buy Property
           </h1>
         </div>

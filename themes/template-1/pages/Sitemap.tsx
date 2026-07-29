@@ -19,13 +19,13 @@ export default function SitemapPage({
           <div className="flex justify-center">
             <Breadcrumb items={page.breadcrumb} theme={theme} />
           </div>
-          <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#c44536]">
+          <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#c44536]">
             {page.pretitle}
           </p>
-          <h1 className="mt-4 text-[2rem] font-semibold sm:text-[2.5rem] leading-tight text-[#141414] md:text-[3.2rem]">
+          <h1 className="mt-1 text-[2rem] font-semibold sm:text-[2.5rem] leading-tight text-[#141414] md:text-[3.2rem]">
             {page.title}
           </h1>
-          <p className="mt-4 text-base leading-relaxed text-[#141414]/65">{page.desc}</p>
+          <p className="mt-1 text-base leading-relaxed text-[#141414]/65">{page.desc}</p>
         </div>
       </section>
 

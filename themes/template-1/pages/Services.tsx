@@ -34,17 +34,17 @@ export default function ServicesContent({
             <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#c44536]">
               {page.pretitle}
             </p>
-            <h1 className="mt-4 max-w-xl text-[2rem] font-semibold sm:text-[2.35rem] leading-[1.08] tracking-[-0.02em] md:text-[3rem] lg:text-[3.25rem]">
+            <h1 className="mt-1 max-w-xl text-[2rem] font-semibold sm:text-[2.35rem] leading-[1.08] tracking-[-0.02em] md:text-[3rem] lg:text-[3.25rem]">
               {page.title}
             </h1>
             <span className="mt-5 block h-[2px] w-10 bg-[#c44536]" />
             {page.desc && (
-              <p className="mt-5 max-w-lg text-base leading-relaxed text-[#141414]/65 md:text-lg">
+              <p className="mt-1 max-w-lg text-base leading-relaxed text-[#141414]/65 md:text-lg">
                 {page.desc}
               </p>
             )}
             {page.desc2 && (
-              <p className="mt-3 max-w-lg text-sm leading-relaxed text-[#141414]/55">
+              <p className="mt-1 max-w-lg text-sm leading-relaxed text-[#141414]/55">
                 {page.desc2}
               </p>
             )}
@@ -114,10 +114,10 @@ export default function ServicesContent({
                         {String(i + 1).padStart(2, "0")}
                         {slide.productSubtitle ? ` · ${slide.productSubtitle}` : ""}
                       </p>
-                      <h3 className="mt-3 text-2xl font-semibold tracking-[-0.02em] md:text-[1.85rem]">
+                      <h3 className="mt-1 text-2xl font-semibold tracking-[-0.02em] md:text-[1.85rem]">
                         {slide.productTitle}
                       </h3>
-                      <p className="mt-3 text-sm leading-relaxed text-[#141414]/60 md:text-base">
+                      <p className="mt-1 text-sm leading-relaxed text-[#141414]/60 md:text-base">
                         {slide.productInfoDesc}
                       </p>
                       {features.length > 0 && (
@@ -156,7 +156,7 @@ export default function ServicesContent({
               <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#c44536]">
                 {data.whyChooseUs.pretitle}
               </p>
-              <h2 className="mt-3 text-[1.85rem] font-semibold md:text-[2.25rem]">
+              <h2 className="mt-1 text-[1.85rem] font-semibold md:text-[2.25rem]">
                 {data.whyChooseUs.title}
               </h2>
             </RevealBlur>
@@ -172,7 +172,7 @@ export default function ServicesContent({
                       {item.stat}
                     </p>
                   )}
-                  <h3 className="mt-3 text-lg font-semibold">{item.title}</h3>
+                  <h3 className="mt-1 text-lg font-semibold">{item.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-[#141414]/60">
                     {item.desc}
                   </p>

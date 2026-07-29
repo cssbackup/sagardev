@@ -47,7 +47,7 @@ export default function Solutions({ data }: { data: ResolvedSiteData }) {
             </p>
           )}
           {about.subtitle && (
-            <h2 className="mt-4 text-[2rem] font-semibold leading-tight text-[#141414] md:text-[2.5rem]">
+            <h2 className="mt-1 text-[2rem] font-semibold leading-tight text-[#141414] md:text-[2.5rem]">
               {about.subtitle}
             </h2>
           )}
@@ -90,11 +90,11 @@ export default function Solutions({ data }: { data: ResolvedSiteData }) {
                       {card.eyebrow}
                     </p>
                   )}
-                  <h3 className="mt-3 max-w-md text-2xl font-semibold leading-snug text-[#141414] md:text-[1.85rem] lg:text-[2rem]">
+                  <h3 className="mt-1 max-w-md text-2xl font-semibold leading-snug text-[#141414] md:text-[1.85rem] lg:text-[2rem]">
                     {card.title}
                   </h3>
                   {card.desc && (
-                    <p className="mt-4 max-w-md text-sm leading-relaxed text-[#141414]/65 md:text-[0.95rem]">
+                    <p className="mt-1 max-w-md text-sm leading-relaxed text-[#141414]/65 md:text-[0.95rem]">
                       {card.desc}
                     </p>
                   )}

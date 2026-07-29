@@ -53,7 +53,7 @@ export default function CompanyStatistics({ data }: { data: ResolvedSiteData }) 
             <p className="text-[2.25rem] font-semibold leading-none tracking-tight text-white md:text-[3.25rem]">
               {item.stat}
             </p>
-            <p className="mt-3 text-sm font-semibold text-white/90">{item.label}</p>
+            <p className="mt-1 text-sm font-semibold text-white/90">{item.label}</p>
             {item.desc && (
               <p className="mt-2 text-sm leading-relaxed text-white/50">{item.desc}</p>
             )}

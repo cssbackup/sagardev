@@ -51,10 +51,10 @@ export default function BlogContent({
             <div className="flex justify-center">
               <Breadcrumb items={page.breadcrumb} theme={theme} />
             </div>
-            <h1 className="mt-4 text-[2rem] font-semibold leading-[1.05] tracking-[-0.02em] text-[#141414] sm:text-[2.35rem] md:text-[3rem]">
+            <h1 className="mt-1 text-[2rem] font-semibold leading-[1.05] tracking-[-0.02em] text-[#141414] sm:text-[2.35rem] md:text-[3rem]">
               {page.featuredLabel || "Featured Blogs"}
             </h1>
-            <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-[#141414]/65 md:text-base">
+            <p className="mx-auto mt-1 max-w-xl text-sm leading-relaxed text-[#141414]/65 md:text-base">
               Practical guides and market notes for buyers, renters, and
               homeowners.
             </p>
@@ -144,12 +144,12 @@ export default function BlogContent({
                   </p>
                 )}
                 {page.ctaTitle && (
-                  <h2 className="mt-3 text-2xl font-semibold leading-tight md:text-3xl">
+                  <h2 className="mt-1 text-2xl font-semibold leading-tight md:text-3xl">
                     {page.ctaTitle}
                   </h2>
                 )}
                 {page.ctaDesc && (
-                  <p className="mt-3 text-sm leading-relaxed text-white/60">
+                  <p className="mt-1 text-sm leading-relaxed text-white/60">
                     {page.ctaDesc}
                   </p>
                 )}

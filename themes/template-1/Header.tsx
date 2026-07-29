@@ -196,10 +196,8 @@ function HeaderInner({ data }: { data: ResolvedSiteData }) {
                       key={groupKey}
                       href={withTheme(item.href, THEME)}
                       aria-current={active ? "page" : undefined}
-                      className={`border-b-2 py-2.5 ${
-                        active
-                          ? "border-[#141414] font-semibold"
-                          : "border-transparent"
+                      className={`py-2.5 ${
+                        active ? "font-semibold text-[#141414]" : "text-[#141414]/80"
                       }`}
                       onClick={() => setOpen(false)}
                     >
@@ -209,16 +207,11 @@ function HeaderInner({ data }: { data: ResolvedSiteData }) {
                 }
 
                 return (
-                  <div
-                    key={groupKey}
-                    className="border-b border-[#141414]/6 last:border-b-0"
-                  >
+                  <div key={groupKey}>
                     <button
                       type="button"
-                      className={`flex w-full items-center justify-between border-b-2 py-2.5 text-left ${
-                        active
-                          ? "border-[#141414] font-semibold"
-                          : "border-transparent"
+                      className={`flex w-full items-center justify-between py-2.5 text-left ${
+                        active ? "font-semibold text-[#141414]" : "text-[#141414]/80"
                       }`}
                       aria-expanded={expanded}
                       aria-current={active ? "page" : undefined}
@@ -233,7 +226,7 @@ function HeaderInner({ data }: { data: ResolvedSiteData }) {
                       />
                     </button>
                     {expanded && (
-                      <div className="flex flex-col gap-1 pb-3 pl-3">
+                      <div className="flex flex-col gap-1 pb-2 pl-3">
                         {item.children!.map((child) => {
                           const childActive = hrefMatches(
                             child.href,
@@ -263,8 +256,8 @@ function HeaderInner({ data }: { data: ResolvedSiteData }) {
               })}
               {cta && (
                 <Link
-                  href={withTheme(cta.href || "/contact", THEME)}
-                  className="mt-3 inline-flex w-full items-center justify-center rounded-full bg-[#141414] px-5 py-3 text-center text-sm font-semibold text-white"
+                  href={withTheme(cta.href, THEME)}
+                  className="mt-3 inline-flex w-full items-center justify-center rounded-full bg-[#141414] px-5 py-3 text-center text-sm font-semibold text-white lg:mt-4"
                   onClick={() => setOpen(false)}
                 >
                   {cta.label}

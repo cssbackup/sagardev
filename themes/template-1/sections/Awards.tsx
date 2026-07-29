@@ -33,11 +33,11 @@ export default function Awards({ data }: { data: ResolvedSiteData }) {
               {page.pretitle}
             </p>
           )}
-          <h2 className="mt-3 max-w-[22ch] text-[1.6rem] font-semibold leading-snug tracking-[-0.01em] text-[#141414] md:max-w-none md:text-[2rem]">
+          <h2 className="mt-1 max-w-[22ch] text-[1.6rem] font-semibold leading-snug tracking-[-0.01em] text-[#141414] md:max-w-none md:text-[2rem]">
             <TitleWithAccent title={page.title} />
           </h2>
           {page.desc && (
-            <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-[#141414]/60 md:text-base">
+            <p className="mx-auto mt-1 max-w-2xl text-sm leading-relaxed text-[#141414]/60 md:text-base">
               {page.desc}
             </p>
           )}
@@ -59,7 +59,7 @@ export default function Awards({ data }: { data: ResolvedSiteData }) {
                   sizes="64px"
                 />
               </div>
-              <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#c44536]">
+              <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#c44536]">
                 {award.year}
               </p>
               <h3 className="mt-1 line-clamp-2 text-xs font-semibold leading-snug text-[#141414] md:text-sm">

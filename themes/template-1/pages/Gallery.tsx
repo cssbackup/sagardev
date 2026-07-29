@@ -70,13 +70,13 @@ export default function Gallery({
           <div className="flex justify-center">
             <Breadcrumb items={page.breadcrumb} theme={theme} />
           </div>
-          <p className="mt-5 text-xs font-semibold uppercase tracking-[0.2em] text-[#c44536]">
+          <p className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#c44536]">
             {page.pretitle}
           </p>
-          <h1 className="mt-3 text-3xl font-semibold text-[#141414] md:text-4xl">
+          <h1 className="mt-1 text-3xl font-semibold text-[#141414] md:text-4xl">
             {page.title}
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-[#141414]/65">{page.desc}</p>
+          <p className="mx-auto mt-1 max-w-2xl text-[#141414]/65">{page.desc}</p>
         </div>
 
         <div

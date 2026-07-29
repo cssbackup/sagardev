@@ -306,10 +306,10 @@ export default function PropertiesContent({
           <div className="flex justify-center">
             <Breadcrumb items={properties.breadcrumb} theme={theme} />
           </div>
-          <h1 className="mt-4 text-[2rem] font-semibold leading-[1.05] tracking-[-0.02em] text-[#141414] sm:text-[2.35rem] md:text-[3rem]">
+          <h1 className="mt-1 text-[2rem] font-semibold leading-[1.05] tracking-[-0.02em] text-[#141414] sm:text-[2.35rem] md:text-[3rem]">
             Featured Properties
           </h1>
-          <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-[#141414]/65 md:text-base">
+          <p className="mx-auto mt-1 max-w-xl text-sm leading-relaxed text-[#141414]/65 md:text-base">
             Browse verified homes for sale and rent across Delhi NCR.
           </p>
         </div>

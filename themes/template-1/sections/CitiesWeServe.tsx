@@ -81,11 +81,11 @@ export default function CitiesWeServe({ data }: { data: ResolvedSiteData }) {
           <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#c44536]">
             {section.pretitle}
           </p>
-          <h2 className="mt-3 text-[1.75rem] font-semibold leading-tight text-[#141414] sm:text-[2rem] md:text-[2.5rem]">
+          <h2 className="mt-1 text-[1.75rem] font-semibold leading-tight text-[#141414] sm:text-[2rem] md:text-[2.5rem]">
             {section.title}
           </h2>
           {section.desc && (
-            <p className="mt-3 text-sm leading-relaxed text-[#141414]/65 md:text-base">
+            <p className="mt-1 text-sm leading-relaxed text-[#141414]/65 md:text-base">
               {section.desc}
             </p>
           )}

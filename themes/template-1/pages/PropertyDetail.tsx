@@ -101,17 +101,17 @@ export default function PropertyDetail({
                 </span>
               </div>
 
-              <h1 className="mt-4 text-[2rem] font-semibold leading-[1.12] tracking-[-0.02em] text-[#141414] md:text-[2.5rem] lg:text-[2.75rem]">
+              <h1 className="mt-1 text-[2rem] font-semibold leading-[1.12] tracking-[-0.02em] text-[#141414] md:text-[2.5rem] lg:text-[2.75rem]">
                 {property.title}
               </h1>
-              <p className="mt-3 text-base font-medium text-[#141414]/80">
+              <p className="mt-1 text-base font-medium text-[#141414]/80">
                 {property.infoTitle}
               </p>
               <p className="mt-2 text-xl font-semibold text-[#141414]">
                 {property.price}
               </p>
 
-              <p className="mt-5 text-sm leading-relaxed text-[#141414]/65 md:text-base">
+              <p className="mt-1 text-sm leading-relaxed text-[#141414]/65 md:text-base">
                 {property.body || property.description}
               </p>
 

@@ -54,7 +54,7 @@ const wordContainer = {
 };
 
 const wordReveal = {
-  hidden: { y: "110%" },
+  hidden: { y: "115%" },
   show: {
     y: "0%",
     transition: { duration: 0.75, ease },
@@ -75,7 +75,7 @@ function RevealWords({ text, className }: { text: string; className?: string }) 
       {words.map((word, i) => (
         <span
           key={`${word}-${i}`}
-          className="inline-block overflow-hidden align-bottom pb-[0.08em]"
+          className="inline-block overflow-hidden align-bottom pb-[0.12em]"
         >
           <motion.span className="inline-block" variants={wordReveal}>
             {word}
@@ -120,11 +120,12 @@ export default function Hero({ data }: { data: ResolvedSiteData }) {
   }, [slides.length]);
 
   return (
-    <section className="relative isolate h-[calc(100svh-4rem)] w-full overflow-hidden bg-[#141414] md:h-[calc(100svh-4.25rem)]">
+    <section className="relative isolate flex min-h-[calc(100svh-4rem)] w-full flex-col justify-between overflow-hidden bg-[#141414] md:min-h-[calc(100svh-4.25rem)]">
+      {/* Background Media */}
       <motion.div
         key={currentSlide?.image}
-        className="absolute inset-0"
-        initial={{ opacity: 0.9 }}
+        className="absolute inset-0 z-0"
+        initial={{ opacity: 0.85 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.35, ease }}
       >
@@ -138,39 +139,43 @@ export default function Hero({ data }: { data: ResolvedSiteData }) {
           }
           fill
           priority
-          className="object-cover object-[55%_center] sm:object-center"
+          className="object-cover object-center"
           sizes="100vw"
         />
       </motion.div>
 
-      <div className="absolute inset-0 bg-linear-to-r from-black/75 via-black/45 to-black/25" />
-      <div className="absolute inset-x-0 bottom-0 h-56 bg-linear-to-t from-black/50 to-transparent" />
+      {/* Overlays */}
+      <div className="absolute inset-0 z-1 bg-gradient-to-r from-black/85 via-black/55 to-black/30" />
+      <div className="absolute inset-x-0 bottom-0 z-1 h-64 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
+      {/* Main Content Area */}
       <motion.div
-        className="relative z-2 flex h-full w-full flex-col justify-center overflow-hidden px-5 pb-28 sm:justify-start sm:px-8 sm:pb-48 sm:pt-16 md:px-12 md:pb-52 md:pt-20 lg:px-16 lg:pt-24"
+        className="relative z-2 flex w-full flex-1 flex-col justify-center px-4 pt-12 pb-24 sm:px-8 sm:pt-16 sm:pb-32 md:px-12 md:pt-20 lg:px-16"
         variants={container}
         initial="hidden"
         animate="show"
       >
         <div className="mx-auto w-full max-w-7xl">
           <div className="max-w-2xl">
-            <motion.p
-              variants={fadeUp}
-              className="text-[10px] font-semibold uppercase tracking-[0.28em] text-white/80 sm:text-[11px]"
-            >
-              {brand}
-            </motion.p>
+            {brand && (
+              <motion.p
+                variants={fadeUp}
+                className="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/80 sm:text-[11px]"
+              >
+                {brand}
+              </motion.p>
+            )}
 
             <RevealWords
               key={currentSlide?.title || banner.title}
               text={currentSlide?.title || banner.title}
-              className="mt-3 text-[1.6rem] font-semibold leading-[1.12] tracking-[-0.02em] text-white min-[380px]:text-[1.85rem] sm:mt-4 sm:text-[2.5rem] md:text-[3.5rem] lg:text-[4rem]"
+              className="mt-1 text-[1.5rem] font-bold leading-[1.15] tracking-[-0.02em] text-white xs:text-[1.85rem] sm:mt-1 sm:text-[2.5rem] md:text-[3.25rem] lg:text-[4rem]"
             />
 
             {(currentSlide?.desc || banner.desc) && (
               <motion.p
                 variants={fadeUp}
-                className="mt-3 max-w-70 text-[13px] leading-relaxed text-white/85 sm:mt-5 sm:max-w-lg sm:text-sm md:text-base"
+                className="mt-1 max-w-xl text-[12px] leading-relaxed text-white/85 sm:mt-1 sm:text-sm md:text-base"
               >
                 {currentSlide?.desc || banner.desc}
               </motion.p>
@@ -178,12 +183,12 @@ export default function Hero({ data }: { data: ResolvedSiteData }) {
 
             <motion.div
               variants={fadeUp}
-              className="mt-5 flex flex-col gap-2 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-3"
+              className="mt-5 flex flex-col gap-2.5 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-3"
             >
               {primary && (
                 <Link
                   href={withTheme(primary.href, THEME)}
-                  className="inline-flex w-full items-center justify-center rounded-full bg-white px-5 py-2 text-[13px] font-semibold text-[#141414] transition hover:bg-white/90 sm:w-auto sm:px-6 sm:py-3 sm:text-sm"
+                  className="inline-flex w-full items-center justify-center rounded-full bg-white px-5 py-2.5 text-[13px] font-semibold text-[#141414] transition hover:bg-white/90 sm:w-auto sm:px-6 sm:py-3 sm:text-sm"
                 >
                   {primary.label}
                 </Link>
@@ -191,7 +196,7 @@ export default function Hero({ data }: { data: ResolvedSiteData }) {
               {secondary && (
                 <Link
                   href={withTheme(secondary.href, THEME)}
-                  className="inline-flex w-full items-center justify-center rounded-full border border-white/80 px-5 py-2 text-[13px] font-semibold text-white transition hover:bg-white/10 sm:w-auto sm:px-6 sm:py-3 sm:text-sm"
+                  className="inline-flex w-full items-center justify-center rounded-full border border-white/80 px-5 py-2.5 text-[13px] font-semibold text-white backdrop-blur-xs transition hover:bg-white/10 sm:w-auto sm:px-6 sm:py-3 sm:text-sm"
                 >
                   {secondary.label}
                 </Link>
@@ -201,6 +206,7 @@ export default function Hero({ data }: { data: ResolvedSiteData }) {
         </div>
       </motion.div>
 
+      {/* Slider Controls */}
       {slides.length > 1 && (
         <>
           <button
@@ -210,27 +216,29 @@ export default function Hero({ data }: { data: ResolvedSiteData }) {
                 (prev) => (prev - 1 + slides.length) % slides.length
               )
             }
-            className="absolute left-2 top-[35%] z-3 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/25 bg-black/30 text-white backdrop-blur-sm transition hover:bg-black/50 sm:left-3 sm:top-[42%] sm:h-9 sm:w-9 md:left-6 md:h-11 md:w-11"
+            className="absolute left-3 top-[40%] z-3 hidden sm:flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white backdrop-blur-md transition hover:bg-black/60 sm:left-5 sm:top-1/2 sm:h-11 sm:w-11"
             aria-label="Previous slide"
           >
-            <FaChevronLeft className="text-sm" />
+            <FaChevronLeft className="text-xs sm:text-sm" />
           </button>
           <button
             type="button"
             onClick={() => setActiveSlide((prev) => (prev + 1) % slides.length)}
-            className="absolute right-2 top-[35%] z-3 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/25 bg-black/30 text-white backdrop-blur-sm transition hover:bg-black/50 sm:right-3 sm:top-[42%] sm:h-9 sm:w-9 md:right-6 md:h-11 md:w-11"
+            className="absolute right-3 top-[40%] z-3 hidden sm:flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white backdrop-blur-md transition hover:bg-black/60 sm:right-5 sm:top-1/2 sm:h-11 sm:w-11"
             aria-label="Next slide"
           >
-            <FaChevronRight className="text-sm" />
+            <FaChevronRight className="text-xs sm:text-sm" />
           </button>
-          <div className="absolute bottom-22 left-1/2 z-5 flex -translate-x-1/2 gap-2 sm:bottom-40 md:bottom-44">
+
+          {/* Dots Indicator */}
+          <div className="absolute bottom-[4.25rem] left-1/2 z-3 flex -translate-x-1/2 gap-1.5 sm:bottom-24 md:bottom-28">
             {slides.map((slide, index) => (
               <button
                 key={`${slide.title}-${index}`}
                 type="button"
                 onClick={() => setActiveSlide(index)}
-                className={`h-2 rounded-full transition ${
-                  activeSlide === index ? "w-8 bg-white" : "w-2 bg-white/45"
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  activeSlide === index ? "w-6 bg-white" : "w-1.5 bg-white/40"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
@@ -239,20 +247,25 @@ export default function Hero({ data }: { data: ResolvedSiteData }) {
         </>
       )}
 
-      <div className="absolute inset-x-0 bottom-0 z-4 border-t border-white/15 bg-black/70 backdrop-blur-md">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-3 gap-y-2.5 px-4 py-3 sm:gap-6 sm:px-8 sm:py-7 md:grid-cols-4 md:gap-7 md:px-12 md:py-8 lg:px-16">
+      {/* Bottom Feature Bar */}
+      <div className="relative z-3 w-full border-t border-white/10 bg-zinc-900/80 backdrop-blur-md">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-3 gap-y-3 px-4 py-3.5 sm:gap-6 sm:px-8 sm:py-5 md:grid-cols-4 md:gap-7 md:px-12 lg:px-16">
           {features.slice(0, 4).map((item) => {
-            const Icon =
-              FEATURE_ICONS[item.icon || ""] || FaLocationDot;
+            const Icon = FEATURE_ICONS[item.icon || ""] || FaLocationDot;
 
             return (
-              <div key={item.title} className="flex items-center gap-2.5 sm:gap-5">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/35 text-white sm:h-11 sm:w-11">
-                  <Icon className="text-[11px] sm:text-[15px]" />
+              <div
+                key={item.title}
+                className="flex items-center gap-2.5 sm:gap-4"
+              >
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white sm:h-10 sm:w-10">
+                  <Icon className="text-[11px] sm:text-[14px]" />
                 </span>
                 <div className="min-w-0">
-                  <p className="truncate text-[11px] font-semibold text-white sm:text-[15px]">{item.title}</p>
-                  <p className="mt-0.5 hidden text-xs leading-snug text-white/70 sm:mt-1 sm:block sm:text-[13px]">
+                  <p className="truncate text-[11px] font-medium text-white sm:text-sm">
+                    {item.title}
+                  </p>
+                  <p className="mt-0.5 hidden text-xs leading-snug text-white/60 sm:block">
                     {item.desc}
                   </p>
                 </div>

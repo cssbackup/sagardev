@@ -49,7 +49,7 @@ export default function Footer({ data }: { data: ResolvedSiteData }) {
             >
               {header.logo.toUpperCase()}
             </Link>
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/55">
+            <p className="mt-1 max-w-xl text-sm leading-relaxed text-white/55">
               {footer.desc}
             </p>
           </div>

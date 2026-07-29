@@ -17,11 +17,11 @@ export default function WhyChooseUs({ data }: { data: ResolvedSiteData }) {
             {whyChooseUs.pretitle}
           </p>
         )}
-        <h2 className="mx-auto mt-4 max-w-3xl text-[2rem] font-semibold leading-tight text-[#141414] md:text-[2.5rem] lg:text-[2.75rem]">
+        <h2 className="mx-auto mt-1 max-w-3xl text-[2rem] font-semibold leading-tight text-[#141414] md:text-[2.5rem] lg:text-[2.75rem]">
           {whyChooseUs.title}
         </h2>
         {whyChooseUs.desc && (
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-[#141414]/65 md:text-base">
+          <p className="mx-auto mt-1 max-w-2xl text-sm leading-relaxed text-[#141414]/65 md:text-base">
             {whyChooseUs.desc}
           </p>
         )}
@@ -44,11 +44,11 @@ export default function WhyChooseUs({ data }: { data: ResolvedSiteData }) {
                       aria-hidden
                     />
                   </div>
-                  <p className="mt-5 text-xs font-semibold tracking-[0.12em] text-[#c44536]">
+                  <p className="mt-1 text-xs font-semibold tracking-[0.12em] text-[#c44536]">
                     {item.stat}
                   </p>
-                  <h3 className="mt-3 text-lg font-semibold text-[#141414]">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-[#141414]/65">{item.desc}</p>
+                  <h3 className="mt-1 text-lg font-semibold text-[#141414]">{item.title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-[#141414]/65">{item.desc}</p>
                 </div>
               );
             })}

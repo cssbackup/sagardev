@@ -19,11 +19,11 @@ export default function Team({ data }: { data: ResolvedSiteData }) {
               {team.pretitle}
             </p>
           )}
-          <h2 className="mt-4 text-[2rem] font-semibold leading-tight text-[#141414] md:text-[2.5rem]">
+          <h2 className="mt-1 text-[2rem] font-semibold leading-tight text-[#141414] md:text-[2.5rem]">
             {team.title}
           </h2>
           {team.desc && (
-            <p className="mt-4 text-sm leading-relaxed text-[#141414]/65 md:text-base">
+            <p className="mt-1 text-sm leading-relaxed text-[#141414]/65 md:text-base">
               {team.desc}
             </p>
           )}
@@ -44,7 +44,7 @@ export default function Team({ data }: { data: ResolvedSiteData }) {
                   sizes="220px"
                 />
               </div>
-              <h3 className="mt-4 text-base font-semibold text-[#141414]">{person.name}</h3>
+              <h3 className="mt-1 text-base font-semibold text-[#141414]">{person.name}</h3>
               <p className="mt-1 text-xs font-medium text-[#c44536]">{person.role}</p>
               {person.bio && (
                 <p className="mx-auto mt-2 max-w-xs text-xs leading-relaxed text-[#141414]/60 line-clamp-3">

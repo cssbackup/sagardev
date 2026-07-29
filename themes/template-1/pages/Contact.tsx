@@ -122,7 +122,7 @@ export default function ContactContent({
               </h1>
               <span className="mt-3 block h-[2px] w-10 bg-[#c44536]" />
               {page.desc && (
-                <p className="mt-3 text-sm leading-relaxed text-[#141414]/65">
+                <p className="mt-1 text-sm leading-relaxed text-[#141414]/65">
                   {page.desc}
                 </p>
               )}
@@ -165,7 +165,7 @@ export default function ContactContent({
               )}
 
               {(page.reachDesc || page.formDesc) && (
-                <p className="mt-5 border-t border-[#141414]/10 pt-4 text-sm leading-relaxed text-[#141414]/55">
+                <p className="mt-1 border-t border-[#141414]/10 pt-4 text-sm leading-relaxed text-[#141414]/55">
                   {page.reachDesc || page.formDesc}
                 </p>
               )}
@@ -180,7 +180,7 @@ export default function ContactContent({
                 {page.formTitle}
               </h2>
               {page.formDesc && (
-                <p className="mt-3 text-sm leading-relaxed text-[#141414]/65">
+                <p className="mt-1 text-sm leading-relaxed text-[#141414]/65">
                   {page.formDesc}
                 </p>
               )}
@@ -191,7 +191,7 @@ export default function ContactContent({
                     <span className="mx-auto flex h-11 w-11 items-center justify-center bg-[#c44536] text-white">
                       <FaArrowRight className="text-sm" aria-hidden />
                     </span>
-                    <p className="mt-4 text-lg font-semibold text-[#141414]">
+                    <p className="mt-1 text-lg font-semibold text-[#141414]">
                       {page.successTitle}
                     </p>
                     {page.successDesc && (

@@ -138,13 +138,13 @@ export default function ProjectsPage({
           <div className="flex justify-center">
             <Breadcrumb items={page.breadcrumb} theme={theme} />
           </div>
-          <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#c44536]">
+          <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#c44536]">
             {page.pretitle || "Our Portfolio"}
           </p>
-          <h1 className="mt-3 text-[2rem] font-semibold leading-[1.05] tracking-[-0.02em] text-[#141414] sm:text-[2.35rem] md:text-[3rem]">
+          <h1 className="mt-1 text-[2rem] font-semibold leading-[1.05] tracking-[-0.02em] text-[#141414] sm:text-[2.35rem] md:text-[3rem]">
             {page.title || "Featured Projects"}
           </h1>
-          <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-[#141414]/65 md:text-base">
+          <p className="mx-auto mt-1 max-w-xl text-sm leading-relaxed text-[#141414]/65 md:text-base">
             {page.desc}
           </p>
         </div>
@@ -172,7 +172,7 @@ export default function ProjectsPage({
             ))}
           </div>
 
-          <p className="mt-3 text-center text-xs font-medium text-[#141414]/50">
+          <p className="mt-1 text-center text-xs font-medium text-[#141414]/50">
             {visible.length} projects
           </p>
 

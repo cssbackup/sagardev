@@ -1374,16 +1374,20 @@
                       "href": "/projects"
                     },
                     {
-                      "label": "New launches",
-                      "href": "/projects?status=New%20Launch"
+                      "label": "Residential",
+                      "href": "/projects?category=Residential"
                     },
                     {
-                      "label": "Ready to move",
-                      "href": "/projects?status=Ready%20to%20Move"
+                      "label": "Commercial",
+                      "href": "/projects?category=Commercial"
                     },
                     {
-                      "label": "Under construction",
-                      "href": "/projects?status=Under%20Construction"
+                      "label": "Mixed Use",
+                      "href": "/projects?category=Mixed%20Use"
+                    },
+                    {
+                      "label": "Plotted Development",
+                      "href": "/projects?category=Plotted%20Development"
                     }
                   ]
                 },
@@ -1455,16 +1459,20 @@
                       "href": "/projects"
                     },
                     {
-                      "label": "New launches",
-                      "href": "/projects?status=New%20Launch"
+                      "label": "Residential",
+                      "href": "/projects?category=Residential"
                     },
                     {
-                      "label": "Ready to move",
-                      "href": "/projects?status=Ready%20to%20Move"
+                      "label": "Commercial",
+                      "href": "/projects?category=Commercial"
                     },
                     {
-                      "label": "Under construction",
-                      "href": "/projects?status=Under%20Construction"
+                      "label": "Mixed Use",
+                      "href": "/projects?category=Mixed%20Use"
+                    },
+                    {
+                      "label": "Plotted Development",
+                      "href": "/projects?category=Plotted%20Development"
                     }
                   ]
                 },
@@ -1536,16 +1544,20 @@
                       "href": "/projects"
                     },
                     {
-                      "label": "New launches",
-                      "href": "/projects?status=New%20Launch"
+                      "label": "Residential",
+                      "href": "/projects?category=Residential"
                     },
                     {
-                      "label": "Ready to move",
-                      "href": "/projects?status=Ready%20to%20Move"
+                      "label": "Commercial",
+                      "href": "/projects?category=Commercial"
                     },
                     {
-                      "label": "Under construction",
-                      "href": "/projects?status=Under%20Construction"
+                      "label": "Mixed Use",
+                      "href": "/projects?category=Mixed%20Use"
+                    },
+                    {
+                      "label": "Plotted Development",
+                      "href": "/projects?category=Plotted%20Development"
                     }
                   ]
                 },
@@ -7797,7 +7809,7 @@
           "variants": {
             "RealEstateLatestProjects1": {
               "pretitle": "Latest projects",
-              "title": "spaces we recently delivered.",
+              "title": "Spaces we recently delivered.",
               "desc": "A look at recent handovers — interiors, layouts, and finishes families move into.",
               "projectItems": [
                 {
@@ -8475,7 +8487,7 @@
             },
             "RealEstateLatestProjects2": {
               "pretitle": "Latest projects",
-              "title": "spaces we recently delivered.",
+              "title": "Spaces we recently delivered.",
               "desc": "A look at recent handovers — interiors, layouts, and finishes families move into.",
               "projectItems": [
                 {
@@ -9153,7 +9165,7 @@
             },
             "RealEstateLatestProjects3": {
               "pretitle": "Latest projects",
-              "title": "spaces we recently delivered.",
+              "title": "Spaces we recently delivered.",
               "desc": "A look at recent handovers — interiors, layouts, and finishes families move into.",
               "projectItems": [
                 {
