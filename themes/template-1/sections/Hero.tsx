@@ -138,7 +138,9 @@ export default function Hero({ data }: { data: ResolvedSiteData }) {
             currentSlide?.alt || banner.backgroundImageTitle || banner.title
           }
           fill
-          priority
+          priority={activeSlide === 0}
+          loading={activeSlide === 0 ? "eager" : "lazy"}
+          fetchPriority={activeSlide === 0 ? "high" : "auto"}
           className="object-cover object-center"
           sizes="100vw"
         />

@@ -13,9 +13,11 @@ const THEME = "template-1" as const;
 function FeaturedCard({
   property,
   themeId,
+  priority = false,
 }: {
   property: PropertyListing;
   themeId: ResolvedSiteData["themeId"];
+  priority?: boolean;
 }) {
   const badge = property.category ?? "Listing";
   const detailHref = withTheme(
@@ -31,6 +33,9 @@ function FeaturedCard({
           src={property.image}
           alt={property.alt || property.title}
           fill
+          priority={priority}
+          loading={priority ? "eager" : "lazy"}
+          fetchPriority={priority ? "high" : "auto"}
           className="object-cover transition duration-700 ease-out group-hover:scale-[1.03]"
           sizes="(max-width: 768px) 78vw, 300px"
         />
@@ -98,11 +103,12 @@ export default function FeaturedProperties({ data }: { data: ResolvedSiteData })
 
       <div className="mx-auto mt-8 max-w-7xl px-4 md:mt-10 md:px-8 lg:px-10">
         <Carousel withNav prevLabel="Previous properties" nextLabel="Next properties">
-          {listings.map((property) => (
+          {listings.map((property, index) => (
             <FeaturedCard
               key={property.title}
               property={property}
               themeId={data.themeId}
+              priority={index === 0}
             />
           ))}
         </Carousel>

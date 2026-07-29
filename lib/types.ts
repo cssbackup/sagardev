@@ -214,6 +214,26 @@ export type FormField = {
   label: string;
   type: string;
   placeholder: string;
+  required?: boolean;
+  options?: string[];
+  fullWidth?: boolean;
+};
+
+export type QuotePageData = {
+  pretitle?: string;
+  title: string;
+  desc: string;
+  bannerImage: string;
+  bannerImageAlt?: string;
+  formSubmitLabel: string;
+  formFields: FormField[];
+  consentPrefix?: string;
+  privacyLabel?: string;
+  termsLabel?: string;
+  secureNote?: string;
+  successTitle?: string;
+  successDesc?: string;
+  breadcrumb?: LinkItem[];
 };
 
 export type FaqItemData = {
@@ -969,6 +989,8 @@ export type CommonData = {
   CustomPage: CustomPageData;
   ServicePage: ServicePageData;
   ContactPage: ContactPageData;
+  QuotePage: QuotePageData;
+  EnquiryPage: QuotePageData;
   PrivacyPage: LegalPageData;
   TermsPage: LegalPageData;
   CookiePolicyPage: LegalPageData;
@@ -1023,6 +1045,8 @@ export type ResolvedSiteData = {
   customPage: CustomPageData;
   servicePage: ServicePageData;
   contactPage: ContactPageData;
+  quotePage: QuotePageData;
+  enquiryPage: QuotePageData;
   privacyPage: LegalPageData;
   termsPage: LegalPageData;
   cookiePolicyPage: LegalPageData;

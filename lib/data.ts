@@ -131,6 +131,8 @@ export function resolveSiteData(
     customPage: common.CustomPage,
     servicePage: common.ServicePage,
     contactPage: common.ContactPage,
+    quotePage: common.QuotePage,
+    enquiryPage: common.EnquiryPage,
     privacyPage: common.PrivacyPage,
     termsPage: common.TermsPage,
     cookiePolicyPage: common.CookiePolicyPage,

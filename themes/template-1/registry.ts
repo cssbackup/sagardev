@@ -19,6 +19,8 @@ import Career from "@/themes/template-1/pages/Career";
 import Csr from "@/themes/template-1/pages/Csr";
 import Mission from "@/themes/template-1/pages/Mission";
 import Buy from "@/themes/template-1/pages/Buy";
+import Quote from "@/themes/template-1/pages/Quote";
+import Enquiry from "@/themes/template-1/pages/Enquiry";
 import Projects from "@/themes/template-1/pages/Projects";
 import CookiePolicy from "@/themes/template-1/pages/CookiePolicy";
 import RefundPolicy from "@/themes/template-1/pages/RefundPolicy";
@@ -60,6 +62,8 @@ export type ThemePack = {
     Csr?: ComponentType<PageProps>;
     Mission?: ComponentType<PageProps>;
     Buy?: ComponentType<PageProps>;
+    Quote?: ComponentType<PageProps>;
+    Enquiry?: ComponentType<PageProps>;
     Projects?: ComponentType<PageProps>;
     CookiePolicy?: ComponentType<PageProps>;
     RefundPolicy?: ComponentType<PageProps>;
@@ -92,6 +96,8 @@ export const template1Pack: ThemePack = {
     Csr,
     Mission,
     Buy,
+    Quote,
+    Enquiry,
     Projects,
     CookiePolicy,
     RefundPolicy,

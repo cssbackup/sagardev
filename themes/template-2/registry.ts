@@ -19,6 +19,8 @@ import Career from "@/themes/template-2/pages/Career";
 import Csr from "@/themes/template-2/pages/Csr";
 import Mission from "@/themes/template-2/pages/Mission";
 import Buy from "@/themes/template-1/pages/Buy";
+import Quote from "@/themes/template-1/pages/Quote";
+import Enquiry from "@/themes/template-1/pages/Enquiry";
 import Projects from "@/themes/template-1/pages/Projects";
 import CookiePolicy from "@/themes/template-1/pages/CookiePolicy";
 import RefundPolicy from "@/themes/template-1/pages/RefundPolicy";
@@ -56,6 +58,8 @@ export const template2Pack: ThemePack = {
     Csr: Csr as ComponentType<PageProps>,
     Mission: Mission as ComponentType<PageProps>,
     Buy: Buy as ComponentType<PageProps>,
+    Quote: Quote as ComponentType<PageProps>,
+    Enquiry: Enquiry as ComponentType<PageProps>,
     Projects: Projects as ComponentType<PageProps>,
     CookiePolicy: CookiePolicy as ComponentType<PageProps>,
     RefundPolicy: RefundPolicy as ComponentType<PageProps>,

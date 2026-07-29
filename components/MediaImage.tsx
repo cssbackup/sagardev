@@ -7,6 +7,25 @@ type Props = Omit<ImageProps, "src"> & {
   themeId?: ThemeId;
 };
 
-export default function MediaImage({ src, themeId, alt, ...props }: Props) {
-  return <Image src={resolveMediaPath(src, themeId)} alt={alt} {...props} />;
+export default function MediaImage({
+  src,
+  themeId,
+  alt,
+  priority,
+  loading,
+  fetchPriority,
+  ...props
+}: Props) {
+  const eager = Boolean(priority);
+
+  return (
+    <Image
+      src={resolveMediaPath(src, themeId)}
+      alt={alt}
+      priority={priority}
+      loading={loading ?? (eager ? "eager" : undefined)}
+      fetchPriority={fetchPriority ?? (eager ? "high" : undefined)}
+      {...props}
+    />
+  );
 }
